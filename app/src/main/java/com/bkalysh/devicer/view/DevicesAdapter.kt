@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bkalysh.devicer.DeviceInfoActivity
 import com.bkalysh.devicer.databinding.ItemDeviceBinding
 import com.bkalysh.devicer.room.models.Device
+import com.bkalysh.devicer.utils.Keys.DEVICE_KEY_EXTRA
 import com.bkalysh.devicer.utils.mapPlatformToImageResource
+import com.bkalysh.devicer.utils.toJsonString
 
 class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<DevicesAdapter.DeviceViewHolder>() {
 
@@ -34,6 +36,7 @@ class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<Device
 
             root.setOnClickListener {
                 val intent = Intent(context, DeviceInfoActivity::class.java)
+                intent.putExtra(DEVICE_KEY_EXTRA, device.toJsonString())
                 context.startActivity(intent)
             }
         }
