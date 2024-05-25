@@ -5,9 +5,7 @@
     <dimen name="double_vertical_margin">40dp</dimen>
     <dimen name="device_item_internal_padding">20dp</dimen>
     <dimen name="device_item_image_size">100dp</dimen>
-
-
-
+    <dimen name="default_icon_size">40dp</dimen>
 
     <!--Text sizes-->
     <dimen name="h1">30sp</dimen>

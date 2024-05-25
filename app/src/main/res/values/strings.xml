@@ -4,4 +4,5 @@
     <string name="device_image_description">Device</string>
     <string name="user_image_description">User image</string>
     <string name="edittext_device_name_hint">Device name</string>
+    <string name="btn_reset_devices_list_description">Reset devices list</string>
 </resources>

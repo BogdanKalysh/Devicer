@@ -2,6 +2,7 @@ package com.bkalysh.devicer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bkalysh.devicer.databinding.ActivityMainBinding
@@ -12,7 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel by viewModel<DeviceViewModel>()
+    private val viewModel: DeviceViewModel by viewModel()
 
     private lateinit var devicesAdapter: DevicesAdapter
 
@@ -23,17 +24,25 @@ class MainActivity : AppCompatActivity() {
 
         setupRecyclerView()
 
-        viewModel.reloadDevices() // TODO remove
+        binding.btnReset.setOnClickListener {
+            viewModel.reloadDevices()
+        }
 
         lifecycleScope.launch {
             viewModel.getAllDevices().collect { devices ->
                 devicesAdapter.devices = devices
             }
         }
+        lifecycleScope.launch {
+            viewModel.isUpdating.collect {isUpdating ->
+                binding.pbMain.visibility = if (isUpdating) View.VISIBLE else View.GONE
+                binding.btnReset.isEnabled = !isUpdating
+            }
+        }
     }
 
     private fun setupRecyclerView() = binding.rvDevices.apply {
-        devicesAdapter = DevicesAdapter()
+        devicesAdapter = DevicesAdapter(this@MainActivity)
         adapter = devicesAdapter
         layoutManager = LinearLayoutManager(this@MainActivity)
     }
