@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Devicer</string>
+    <string name="user_name">Bohdan Kalysh</string>
+    <string name="device_image_description">Device</string>
+    <string name="user_image_description">User image</string>
+    <string name="edittext_device_name_hint">Device name</string>
 </resources>

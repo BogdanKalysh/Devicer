@@ -17,14 +17,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        lifecycleScope.launch {
-            viewModel.getAllDevices().collect { devices ->
-                binding.txtTxt.text = devices.joinToString("\n\n")
-            }
-        }
+//        lifecycleScope.launch {
+//            viewModel.getAllDevices().collect { devices ->
+//                binding.txtTxt.text = devices.joinToString("\n\n")
+//            }
+//        }
 
-        binding.btnUpdate.setOnClickListener {
-            viewModel.reloadDevices()
-        }
+//        binding.btnUpdate.setOnClickListener {
+//            viewModel.reloadDevices()
+//        }
     }
 }

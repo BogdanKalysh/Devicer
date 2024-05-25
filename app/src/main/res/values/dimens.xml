@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="user_image_size">180dp</dimen>
+    <dimen name="vertical_margin">20dp</dimen>
+    <dimen name="double_vertical_margin">40dp</dimen>
+    <dimen name="device_item_internal_padding">20dp</dimen>
+    <dimen name="device_item_image_size">100dp</dimen>
+
+
+
+
+    <!--Text sizes-->
+    <dimen name="h1">30sp</dimen>
+    <dimen name="h2">20sp</dimen>
+    <dimen name="h3">16sp</dimen>
+
+
+</resources>
