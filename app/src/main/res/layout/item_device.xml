@@ -17,6 +17,8 @@
     <TextView
         android:id="@+id/tv_device_name"
         tools:text="Home Number 1"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textSize="@dimen/h2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -24,11 +26,13 @@
         app:layout_constraintTop_toTopOf="@id/img_device"
         app:layout_constraintStart_toEndOf="@id/img_device"
         app:layout_constraintBottom_toTopOf="@id/tv_device_serial"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/btn_arrow" />
 
     <TextView
         android:id="@+id/tv_device_serial"
         tools:text="SN 50100070"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textSize="@dimen/h3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -36,6 +40,17 @@
         app:layout_constraintBottom_toBottomOf="@id/img_device"
         app:layout_constraintStart_toEndOf="@id/img_device"
         app:layout_constraintTop_toBottomOf="@id/tv_device_name"
+        app:layout_constraintEnd_toStartOf="@id/btn_arrow" />
+
+    <ImageView
+        android:id="@+id/btn_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_forward_24"
+        android:background="@color/transparent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

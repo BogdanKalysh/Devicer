@@ -48,6 +48,8 @@
         <TextView
             android:id="@+id/tv_device_name"
             tools:text="Home Number 1"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textSize="@dimen/h1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
