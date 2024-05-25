@@ -24,7 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DeviceInfoActivity" />
-        <activity android:name=".DeviceEditActivity" />
+        <activity android:name=".DeviceEditActivity"
+            android:windowSoftInputMode="stateVisible"/>
     </application>
 
 </manifest>

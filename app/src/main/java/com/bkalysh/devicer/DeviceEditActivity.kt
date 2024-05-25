@@ -1,7 +1,9 @@
 package com.bkalysh.devicer
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bkalysh.devicer.databinding.ActivityDeviceEditBinding
@@ -32,10 +34,10 @@ class DeviceEditActivity : AppCompatActivity() {
                 finish()
             }
         }
-
         binding.btnSave.setOnClickListener {
             updateDevice()
         }
+        binding.etDeviceName.requestFocus()
     }
 
     private fun setupDevice() {
