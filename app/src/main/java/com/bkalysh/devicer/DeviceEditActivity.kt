@@ -1,6 +1,5 @@
 package com.bkalysh.devicer
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
@@ -37,6 +36,9 @@ class DeviceEditActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             updateDevice()
         }
+        binding.root.setOnClickListener {
+            hideKeyboard()
+        }
         binding.etDeviceName.requestFocus()
     }
 
@@ -60,5 +62,10 @@ class DeviceEditActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, getString(R.string.name_not_null), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun hideKeyboard() {
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
 }

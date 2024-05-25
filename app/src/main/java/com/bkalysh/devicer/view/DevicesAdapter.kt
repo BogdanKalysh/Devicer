@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bkalysh.devicer.DeleteDeviceDialogFragment
 import com.bkalysh.devicer.DeviceEditActivity
 import com.bkalysh.devicer.DeviceInfoActivity
 import com.bkalysh.devicer.databinding.ItemDeviceBinding
@@ -46,6 +48,12 @@ class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<Device
                 intent.putExtra(DEVICE_KEY_EXTRA, device.toJsonString())
                 context.startActivity(intent)
             }
+
+            root.setOnLongClickListener {
+                DeleteDeviceDialogFragment(device)
+                    .show((context as AppCompatActivity).supportFragmentManager, DELETE_DEVICE_DIALOG)
+                true
+            }
         }
     }
 
@@ -64,4 +72,8 @@ class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<Device
     var devices: List<Device>
         get() = differ.currentList
         set(value) { differ.submitList(value) }
+
+    companion object {
+        const val DELETE_DEVICE_DIALOG = "DELETE_DEVICE_DIALOG"
+    }
 }

@@ -36,9 +36,19 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             viewModel.isUpdating.collect {isUpdating ->
                 binding.pbMain.visibility = if (isUpdating) View.VISIBLE else View.GONE
-                binding.btnReset.isEnabled = !isUpdating
+                if (isUpdating) disableUI() else enableUI() // Disabling UI while updating devices
             }
         }
+    }
+
+    private fun disableUI() {
+        window.setFlags(
+            android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        )
+    }
+    private fun enableUI() {
+        window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
     }
 
     private fun setupRecyclerView() = binding.rvDevices.apply {

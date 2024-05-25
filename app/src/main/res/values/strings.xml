@@ -8,4 +8,5 @@
     <string name="save">Save</string>
     <string name="name_not_null">Device name can not be null</string>
     <string name="edit_device">Edit device</string>
+    <string name="delete_question">Do you want to delete the device?</string>
 </resources>
