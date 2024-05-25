@@ -70,7 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/img_device"
-            android:layout_marginTop="@dimen/double_vertical_margin"/>
+            android:layout_marginTop="@dimen/double_vertical_margin" />
 
         <TextView
             android:id="@+id/tv_mac_address"
@@ -91,7 +91,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_mac_address"
-            android:layout_marginTop="@dimen/double_vertical_margin"/>
+            android:layout_marginTop="@dimen/double_vertical_margin" />
 
         <TextView
             android:id="@+id/tv_model"
@@ -103,7 +103,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_firmware" />
 
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_save"
+            android:text="@string/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

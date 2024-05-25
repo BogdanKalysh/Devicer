@@ -5,4 +5,7 @@
     <string name="user_image_description">User image</string>
     <string name="edittext_device_name_hint">Device name</string>
     <string name="btn_reset_devices_list_description">Reset devices list</string>
+    <string name="save">Save</string>
+    <string name="name_not_null">Device name can not be null</string>
+    <string name="edit_device">Edit device</string>
 </resources>

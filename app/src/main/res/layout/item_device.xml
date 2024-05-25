@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="@id/img_device"
         app:layout_constraintStart_toEndOf="@id/img_device"
         app:layout_constraintBottom_toTopOf="@id/tv_device_serial"
-        app:layout_constraintEnd_toStartOf="@id/btn_arrow" />
+        app:layout_constraintEnd_toStartOf="@id/btn_edit" />
 
     <TextView
         android:id="@+id/tv_device_serial"
@@ -40,17 +40,30 @@
         app:layout_constraintBottom_toBottomOf="@id/img_device"
         app:layout_constraintStart_toEndOf="@id/img_device"
         app:layout_constraintTop_toBottomOf="@id/tv_device_name"
-        app:layout_constraintEnd_toStartOf="@id/btn_arrow" />
+        app:layout_constraintEnd_toStartOf="@id/btn_edit" />
 
     <ImageView
         android:id="@+id/btn_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
         android:src="@drawable/ic_arrow_forward_24"
         android:background="@color/transparent"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit_24"
+        android:contentDescription="@string/edit_device"
+        android:background="@color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_arrow"
+        android:layout_marginEnd="@dimen/device_item_internal_padding"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

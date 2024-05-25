@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bkalysh.devicer.DeviceEditActivity
 import com.bkalysh.devicer.DeviceInfoActivity
 import com.bkalysh.devicer.databinding.ItemDeviceBinding
 import com.bkalysh.devicer.room.models.Device
@@ -36,6 +37,12 @@ class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<Device
 
             root.setOnClickListener {
                 val intent = Intent(context, DeviceInfoActivity::class.java)
+                intent.putExtra(DEVICE_KEY_EXTRA, device.toJsonString())
+                context.startActivity(intent)
+            }
+
+            btnEdit.setOnClickListener {
+                val intent = Intent(context, DeviceEditActivity::class.java)
                 intent.putExtra(DEVICE_KEY_EXTRA, device.toJsonString())
                 context.startActivity(intent)
             }
