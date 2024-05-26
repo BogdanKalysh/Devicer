@@ -31,6 +31,7 @@ class DeviceInfoActivity : AppCompatActivity()  {
     }
 
     private fun setupDevice() {
+        Log.d(TAG, "Setting up views with device: $device")
         binding.imgDevice.setImageResource(mapPlatformToImageResource(device.platform))
         binding.tvDeviceName.text = device.name
         binding.tvSerialNumber.text = getString(R.string.device_serial, device.pkDevice)

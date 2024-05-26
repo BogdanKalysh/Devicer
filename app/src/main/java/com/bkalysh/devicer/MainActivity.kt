@@ -2,6 +2,7 @@ package com.bkalysh.devicer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,16 +25,19 @@ class MainActivity : AppCompatActivity() {
         setupRecyclerView()
 
         binding.btnReset.setOnClickListener {
+            Log.d(TAG, "Reset button clicked")
             viewModel.reloadDevices()
         }
 
         lifecycleScope.launch {
             viewModel.getAllDevices().collect { devices ->
+                Log.d(TAG, "Devices list updated")
                 devicesAdapter.devices = devices
             }
         }
         lifecycleScope.launch {
             viewModel.isUpdating.collect {isUpdating ->
+                Log.d(TAG, "Data update started: $isUpdating")
                 binding.pbMain.visibility = if (isUpdating) View.VISIBLE else View.GONE
                 if (isUpdating) disableUI() else enableUI() // Disabling UI while updating devices
             }
@@ -41,12 +45,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun disableUI() {
+        Log.i(TAG, "Disabling activity UI")
         window.setFlags(
             android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
         )
     }
     private fun enableUI() {
+        Log.i(TAG, "Enabling activity UI")
         window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
     }
 
@@ -54,5 +60,9 @@ class MainActivity : AppCompatActivity() {
         devicesAdapter = DevicesAdapter(this@MainActivity)
         adapter = devicesAdapter
         layoutManager = LinearLayoutManager(this@MainActivity)
+    }
+
+    companion object {
+        val TAG: String = MainActivity::class.java.name
     }
 }

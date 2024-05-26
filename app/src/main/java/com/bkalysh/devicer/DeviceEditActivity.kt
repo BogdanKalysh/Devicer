@@ -29,20 +29,23 @@ class DeviceEditActivity : AppCompatActivity() {
                 device = deviceJson.toDevice()
                 setupDevice()
             } catch (e: JsonSyntaxException) {
-                Log.e(DeviceInfoActivity.TAG, "Failed to parse JSON for Device")
+                Log.e(TAG, "Failed to parse JSON for Device")
                 finish()
             }
         }
         binding.btnSave.setOnClickListener {
+            Log.d(TAG, "Save button clicked")
             updateDevice()
         }
         binding.root.setOnClickListener {
+            Log.d(TAG, "Clicked away from keyboard. Hiding the keyboard")
             hideKeyboard()
         }
         binding.etDeviceName.requestFocus()
     }
 
     private fun setupDevice() {
+        Log.d(TAG, "Setting up views with device: $device")
         binding.imgDevice.setImageResource(mapPlatformToImageResource(device.platform))
         binding.etDeviceName.setText(device.name)
         binding.tvSerialNumber.text = getString(R.string.device_serial, device.pkDevice)
@@ -57,9 +60,11 @@ class DeviceEditActivity : AppCompatActivity() {
             val newDevice = device.copy(
                 name = name
             )
+            Log.d(TAG, "Updating device: $device")
             viewModel.updateDevice(newDevice)
             finish()
         } else {
+            Log.d(TAG, "Device name set to empty. Don't save")
             Toast.makeText(this, getString(R.string.name_not_null), Toast.LENGTH_SHORT).show()
         }
     }
@@ -67,5 +72,9 @@ class DeviceEditActivity : AppCompatActivity() {
     private fun hideKeyboard() {
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+    }
+
+    companion object {
+        val TAG: String = DeviceEditActivity::class.java.name
     }
 }

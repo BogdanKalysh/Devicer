@@ -2,6 +2,7 @@ package com.bkalysh.devicer.view
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,7 @@ import com.bkalysh.devicer.utils.toJsonString
 class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<DevicesAdapter.DeviceViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeviceViewHolder {
+        Log.d(TAG, "Created DevicesAdapter")
         return DeviceViewHolder(
             ItemDeviceBinding.inflate(LayoutInflater.from(parent.context),
                 parent, false
@@ -36,23 +38,27 @@ class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<Device
     override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
         holder.binding.apply {
             val device = devices[position]
+            Log.d(TAG, "Binding device: $device")
             tvDeviceName.text = device.name
             tvDeviceSerial.text = context.getString(R.string.device_serial, device.pkDevice)
             imgDevice.setImageResource(mapPlatformToImageResource(device.platform))
 
             root.setOnClickListener {
+                Log.i(TAG, "Starting device info activity for: $device")
                 val intent = Intent(context, DeviceInfoActivity::class.java)
                 intent.putExtra(DEVICE_KEY_EXTRA, device.toJsonString())
                 context.startActivity(intent)
             }
 
             btnEdit.setOnClickListener {
+                Log.i(TAG, "Starting device edit activity for: $device")
                 val intent = Intent(context, DeviceEditActivity::class.java)
                 intent.putExtra(DEVICE_KEY_EXTRA, device.toJsonString())
                 context.startActivity(intent)
             }
 
             root.setOnLongClickListener {
+                Log.i(TAG, "Showing delete dialog for: $device")
                 DeleteDeviceDialogFragment(device)
                     .show((context as AppCompatActivity).supportFragmentManager, DELETE_DEVICE_DIALOG)
                 true
@@ -75,4 +81,8 @@ class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<Device
     var devices: List<Device>
         get() = differ.currentList
         set(value) { differ.submitList(value) }
+
+    companion object {
+        val TAG: String = DevicesAdapter::class.java.name
+    }
 }

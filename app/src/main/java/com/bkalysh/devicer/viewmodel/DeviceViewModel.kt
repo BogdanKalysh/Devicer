@@ -18,23 +18,28 @@ class DeviceViewModel(private val repository: DeviceRepository, private val api:
     val isUpdating = MutableStateFlow(false)
 
     fun getAllDevices(): Flow<List<Device>> {
+        Log.d(TAG, "Calling getAllDevices")
         return repository.getAllDevicesSorted()
     }
 
     fun updateDevice(device: Device) {
+        Log.d(TAG, "Calling updateDevice")
         viewModelScope.launch {
             repository.upsertDevice(device)
         }
     }
 
     fun deleteDevice(device: Device) {
+        Log.d(TAG, "Calling deleteDevice")
         viewModelScope.launch {
             repository.deleteDevice(device)
         }
     }
 
     fun reloadDevices() {
+        Log.d(TAG, "Calling reloadDevices")
         viewModelScope.launch {
+            Log.d(TAG, "Launched reloadDevices")
             isUpdating.value = true
             val response = try {
                 api.getDevices()
@@ -49,6 +54,7 @@ class DeviceViewModel(private val repository: DeviceRepository, private val api:
             }
 
             if (response.isSuccessful && response.body() != null) {
+                Log.i(TAG, "Successfully fetched devices data.")
                 repository.deleteAllDevices()
                 repository.upsertDevices(response.body()!!.devices.mapIndexed { idx, device ->
                     device.toRoomDevice("$DEFAULT_DEVICE_NAME ${idx+1}")
