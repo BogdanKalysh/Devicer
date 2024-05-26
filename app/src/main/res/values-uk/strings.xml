@@ -1,0 +1,20 @@
+<resources>
+    <!--  Views strings  -->
+    <string name="device_image_description">Пристрій</string>
+    <string name="user_image_description">Користувач</string>
+    <string name="edittext_device_name_hint">Назва пристрою</string>
+    <string name="btn_reset_devices_list_description">Перевантажити список девайсів</string>
+    <string name="save">Зберегти</string>
+    <string name="cancel">Скасувати</string>
+    <string name="name_not_null">Назва пристрою не може бути порожня</string>
+    <string name="edit_device">Редагувати пристрій</string>
+    <string name="close_device_info">Закрити інформацію про пристрій</string>
+    <string name="close_device_edit">Закрити редагування пристрою</string>
+    <string name="delete_question">Ви хочете видалити пристрій?</string>
+
+    <!--  Placeholders for textview  -->
+    <string name="device_serial">"СН: %d"</string>
+    <string name="device_mac_address">"MAC Адреса: %s"</string>
+    <string name="device_firmware">"Прошивка: %s"</string>
+    <string name="device_model">"Модель: %s"</string>
+</resources>

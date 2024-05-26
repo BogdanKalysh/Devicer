@@ -1,18 +1,19 @@
 <resources>
-    <string name="app_name">Devicer</string>
-    <string name="user_name">Bohdan Kalysh</string>
+    <string name="app_name" translatable="false">Devicer</string>
+    <string name="user_name" translatable="false">Bohdan Kalysh</string>
 
     <!--  config strings  -->
-    <string name="server_name">https://veramobile.mios.com</string>
-    <string name="database_name">device_database</string>
+    <string name="server_name" translatable="false">https://veramobile.mios.com</string>
+    <string name="database_name" translatable="false">device_database</string>
 
     <!--  Views strings  -->
     <string name="device_image_description">Device</string>
-    <string name="user_image_description">User image</string>
+    <string name="user_image_description">User</string>
     <string name="edittext_device_name_hint">Device name</string>
     <string name="btn_reset_devices_list_description">Reset devices list</string>
     <string name="save">Save</string>
-    <string name="name_not_null">Device name can not be null</string>
+    <string name="cancel">Cancel</string>
+    <string name="name_not_null">Device name can not be empty</string>
     <string name="edit_device">Edit device</string>
     <string name="close_device_info">Close device info</string>
     <string name="close_device_edit">Close device edit</string>
