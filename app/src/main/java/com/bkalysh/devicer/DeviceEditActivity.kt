@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bkalysh.devicer.databinding.ActivityDeviceEditBinding
 import com.bkalysh.devicer.room.models.Device
-import com.bkalysh.devicer.utils.Keys
+import com.bkalysh.devicer.utils.Constants
 import com.bkalysh.devicer.utils.mapPlatformToImageResource
 import com.bkalysh.devicer.utils.toDevice
 import com.bkalysh.devicer.viewmodel.DeviceViewModel
@@ -23,7 +23,7 @@ class DeviceEditActivity : AppCompatActivity() {
         binding = ActivityDeviceEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val deviceJson = intent.getStringExtra(Keys.DEVICE_KEY_EXTRA)
+        val deviceJson = intent.getStringExtra(Constants.DEVICE_KEY_EXTRA)
         deviceJson?.apply {
             try {
                 device = deviceJson.toDevice()
@@ -45,10 +45,10 @@ class DeviceEditActivity : AppCompatActivity() {
     private fun setupDevice() {
         binding.imgDevice.setImageResource(mapPlatformToImageResource(device.platform))
         binding.etDeviceName.setText(device.name)
-        binding.tvSerialNumber.text = "SN: ${device.pkDevice}"
-        binding.tvMacAddress.text = "MAC Address: ${device.macAddress}"
-        binding.tvFirmware.text = "Firmware: ${device.firmware}"
-        binding.tvModel.text = "Model: ${device.platform}"
+        binding.tvSerialNumber.text = getString(R.string.device_serial, device.pkDevice)
+        binding.tvMacAddress.text = getString(R.string.device_mac_address, device.macAddress)
+        binding.tvFirmware.text = getString(R.string.device_firmware, device.firmware)
+        binding.tvModel.text = getString(R.string.device_model, device.platform)
     }
 
     private fun updateDevice() {

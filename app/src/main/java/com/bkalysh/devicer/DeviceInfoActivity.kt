@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.bkalysh.devicer.databinding.ActivityDeviceInfoBinding
 import com.bkalysh.devicer.room.models.Device
-import com.bkalysh.devicer.utils.Keys.DEVICE_KEY_EXTRA
+import com.bkalysh.devicer.utils.Constants.DEVICE_KEY_EXTRA
 import com.bkalysh.devicer.utils.mapPlatformToImageResource
 import com.bkalysh.devicer.utils.toDevice
 import com.google.gson.JsonSyntaxException
@@ -33,10 +33,10 @@ class DeviceInfoActivity : AppCompatActivity()  {
     private fun setupDevice() {
         binding.imgDevice.setImageResource(mapPlatformToImageResource(device.platform))
         binding.tvDeviceName.text = device.name
-        binding.tvSerialNumber.text = "SN: ${device.pkDevice}"
-        binding.tvMacAddress.text = "MAC Address: ${device.macAddress}"
-        binding.tvFirmware.text = "Firmware: ${device.firmware}"
-        binding.tvModel.text = "Model: ${device.platform}"
+        binding.tvSerialNumber.text = getString(R.string.device_serial, device.pkDevice)
+        binding.tvMacAddress.text = getString(R.string.device_mac_address, device.macAddress)
+        binding.tvFirmware.text = getString(R.string.device_firmware, device.firmware)
+        binding.tvModel.text = getString(R.string.device_model, device.platform)
     }
 
     companion object {

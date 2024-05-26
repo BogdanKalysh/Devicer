@@ -14,7 +14,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: DeviceViewModel by viewModel()
-
     private lateinit var devicesAdapter: DevicesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {

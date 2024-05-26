@@ -27,7 +27,6 @@ class DeleteDeviceDialogFragment(private val device: Device) : DialogFragment() 
             binding.btnCancel.setOnClickListener {
                 dismiss()
             }
-
             dialog
         } ?: throw IllegalStateException("Activity cannot be null")
     }

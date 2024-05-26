@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bkalysh.devicer.DeleteDeviceDialogFragment
 import com.bkalysh.devicer.DeviceEditActivity
 import com.bkalysh.devicer.DeviceInfoActivity
+import com.bkalysh.devicer.R
 import com.bkalysh.devicer.databinding.ItemDeviceBinding
 import com.bkalysh.devicer.room.models.Device
-import com.bkalysh.devicer.utils.Keys.DEVICE_KEY_EXTRA
+import com.bkalysh.devicer.utils.Constants.DELETE_DEVICE_DIALOG
+import com.bkalysh.devicer.utils.Constants.DEVICE_KEY_EXTRA
 import com.bkalysh.devicer.utils.mapPlatformToImageResource
 import com.bkalysh.devicer.utils.toJsonString
 
@@ -23,7 +25,8 @@ class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<Device
         return DeviceViewHolder(
             ItemDeviceBinding.inflate(LayoutInflater.from(parent.context),
                 parent, false
-            ))
+            )
+        )
     }
 
     override fun getItemCount(): Int {
@@ -34,7 +37,7 @@ class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<Device
         holder.binding.apply {
             val device = devices[position]
             tvDeviceName.text = device.name
-            tvDeviceSerial.text = "SN: ${device.pkDevice}"
+            tvDeviceSerial.text = context.getString(R.string.device_serial, device.pkDevice)
             imgDevice.setImageResource(mapPlatformToImageResource(device.platform))
 
             root.setOnClickListener {
@@ -72,8 +75,4 @@ class DevicesAdapter(private val context: Context) : RecyclerView.Adapter<Device
     var devices: List<Device>
         get() = differ.currentList
         set(value) { differ.submitList(value) }
-
-    companion object {
-        const val DELETE_DEVICE_DIALOG = "DELETE_DEVICE_DIALOG"
-    }
 }

@@ -20,7 +20,7 @@ interface DeviceDao {
     suspend fun delete(device: Device)
 
     @Query("DELETE FROM device")
-    suspend fun deleteAllDevices()
+    suspend fun deleteAll()
 
     @Query("SELECT * FROM device ORDER BY pkDevice ASC")
     fun getAllSorted(): Flow<List<Device>>

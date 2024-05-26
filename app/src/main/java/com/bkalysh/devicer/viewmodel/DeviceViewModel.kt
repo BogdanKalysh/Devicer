@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.bkalysh.devicer.retrofit.DevicesApi
 import com.bkalysh.devicer.room.models.Device
 import com.bkalysh.devicer.room.DeviceRepository
+import com.bkalysh.devicer.utils.Constants.DEFAULT_DEVICE_NAME
 import com.bkalysh.devicer.utils.toRoomDevice
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -50,7 +51,8 @@ class DeviceViewModel(private val repository: DeviceRepository, private val api:
             if (response.isSuccessful && response.body() != null) {
                 repository.deleteAllDevices()
                 repository.upsertDevices(response.body()!!.devices.mapIndexed { idx, device ->
-                    device.toRoomDevice("$DEFAULT_DEVICE_NAME ${idx+1}") })
+                    device.toRoomDevice("$DEFAULT_DEVICE_NAME ${idx+1}")
+                })
             }
             isUpdating.value = false
         }
@@ -58,7 +60,5 @@ class DeviceViewModel(private val repository: DeviceRepository, private val api:
 
     companion object {
         val TAG: String = DeviceViewModel::class.java.name
-
-        const val DEFAULT_DEVICE_NAME = "Home Number"
     }
 }

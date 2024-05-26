@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Devicer</string>
     <string name="user_name">Bohdan Kalysh</string>
+
+    <!--  config strings  -->
+    <string name="server_name">https://veramobile.mios.com</string>
+    <string name="database_name">device_database</string>
+
+    <!--  Views strings  -->
     <string name="device_image_description">Device</string>
     <string name="user_image_description">User image</string>
     <string name="edittext_device_name_hint">Device name</string>
@@ -9,4 +15,10 @@
     <string name="name_not_null">Device name can not be null</string>
     <string name="edit_device">Edit device</string>
     <string name="delete_question">Do you want to delete the device?</string>
+
+    <!--  Placeholders for textview  -->
+    <string name="device_serial">"SN: %d"</string>
+    <string name="device_mac_address">"MAC Address: %s"</string>
+    <string name="device_firmware">"Firmware: %s"</string>
+    <string name="device_model">"Model: %s"</string>
 </resources>
