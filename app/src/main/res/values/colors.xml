@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="primary_light">#FEF7FE</color>
+    <color name="secondary_light">@color/white</color>
+
+    <color name="primary_dark">#141218</color>
+    <color name="secondary_dark">#26232C</color>
+
+    <color name="main">@color/primary_light</color>
+    <color name="secondary">@color/secondary_light</color>
+    <color name="accent">@color/primary_dark</color>
+
     <color name="transparent">#00000000</color>
-    <color name="ripple_black_transparent">#33000000</color>
+    <color name="ripple_transparent">#33000000</color>
 </resources>

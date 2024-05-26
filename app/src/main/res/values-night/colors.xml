@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main">@color/primary_dark</color>
+    <color name="secondary">@color/secondary_dark</color>
+    <color name="accent">@color/primary_light</color>
+
+    <color name="ripple_transparent">#33FFFFFF</color>
+</resources>
