@@ -14,6 +14,8 @@
     <string name="save">Save</string>
     <string name="name_not_null">Device name can not be null</string>
     <string name="edit_device">Edit device</string>
+    <string name="close_device_info">Close device info</string>
+    <string name="close_device_edit">Close device edit</string>
     <string name="delete_question">Do you want to delete the device?</string>
 
     <!--  Placeholders for textview  -->
