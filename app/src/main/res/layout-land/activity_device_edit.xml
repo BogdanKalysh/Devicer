@@ -13,9 +13,10 @@
         android:layout_width="@dimen/user_image_size"
         android:layout_height="@dimen/user_image_size"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/vertical_margin" />
+        app:layout_constraintEnd_toStartOf="@id/cl_device_info"
+        android:layout_margin="@dimen/double_vertical_margin" />
 
     <TextView
         android:id="@+id/tv_user_name"
@@ -23,8 +24,8 @@
         android:textSize="@dimen/h1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/img_user"
+        app:layout_constraintEnd_toEndOf="@id/img_user"
         app:layout_constraintTop_toBottomOf="@id/img_user"
         android:layout_marginTop="@dimen/vertical_margin" />
 
@@ -43,12 +44,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_device_info"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/background_default_button"
         android:elevation="@dimen/default_elevation"
-        app:layout_constraintTop_toBottomOf="@id/tv_user_name"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_save"
+        app:layout_constraintStart_toEndOf="@id/img_user"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="@dimen/device_item_internal_padding"
         android:padding="@dimen/device_item_internal_padding">
 
@@ -60,19 +63,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_device_name"
-            tools:text="Home Number 1"
-            android:maxLines="2"
-            android:ellipsize="end"
+        <EditText
+            android:id="@+id/et_device_name"
             android:textSize="@dimen/h1"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            app:layout_constraintWidth_max="400dp"
+            tools:text="Home Number 1"
+            android:hint="@string/edittext_device_name_hint"
+            android:inputType="text"
+            android:importantForAutofill="no"
             app:layout_constraintStart_toEndOf="@id/img_device"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/img_device"
             app:layout_constraintBottom_toBottomOf="@id/img_device"
-            android:layout_marginStart="@dimen/device_item_internal_padding"/>
+            android:layout_marginStart="@dimen/device_item_internal_padding" />
 
         <TextView
             android:id="@+id/tv_serial_number"
@@ -83,7 +88,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/img_device"
-            android:layout_marginTop="@dimen/double_vertical_margin"/>
+            android:layout_marginTop="@dimen/vertical_margin"/>
 
         <TextView
             android:id="@+id/tv_mac_address"
@@ -103,8 +108,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_mac_address"
-            android:layout_marginTop="@dimen/double_vertical_margin"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_mac_address" />
 
         <TextView
             android:id="@+id/tv_model"
@@ -118,7 +122,18 @@
 
 
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save"
+        android:text="@string/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_default_button_ripple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/cl_device_info"
+        app:layout_constraintEnd_toEndOf="@id/cl_device_info"
+        android:layout_margin="@dimen/device_item_internal_padding"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
