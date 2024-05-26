@@ -7,6 +7,7 @@ import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bkalysh.devicer.databinding.ActivityMainBinding
+import com.bkalysh.devicer.utils.setRoundImageView
 import com.bkalysh.devicer.view.DevicesAdapter
 import com.bkalysh.devicer.viewmodel.DeviceViewModel
 import kotlinx.coroutines.launch
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setRoundImageView(this, binding.imgUser, R.drawable.user_pick)
         setupRecyclerView()
 
         binding.btnReset.setOnClickListener {

@@ -9,6 +9,7 @@ import com.bkalysh.devicer.databinding.ActivityDeviceEditBinding
 import com.bkalysh.devicer.room.models.Device
 import com.bkalysh.devicer.utils.Constants
 import com.bkalysh.devicer.utils.mapPlatformToImageResource
+import com.bkalysh.devicer.utils.setRoundImageView
 import com.bkalysh.devicer.utils.toDevice
 import com.bkalysh.devicer.viewmodel.DeviceViewModel
 import com.google.gson.JsonSyntaxException
@@ -22,6 +23,8 @@ class DeviceEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDeviceEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setRoundImageView(this, binding.imgUser, R.drawable.user_pick)
 
         val deviceJson = intent.getStringExtra(Constants.DEVICE_KEY_EXTRA)
         deviceJson?.apply {
