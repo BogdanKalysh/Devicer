@@ -19,6 +19,8 @@ class DeleteDeviceDialogFragment(private val device: Device) : DialogFragment() 
             binding = DialogFragmentDeviceDeleteBinding.inflate(requireActivity().layoutInflater)
             builder.setView(binding.root)
 
+            binding.tvDeviceName.text = device.name
+
             val dialog = builder.create()
             binding.btnOk.setOnClickListener {
                 viewModel.deleteDevice(device)
@@ -27,6 +29,9 @@ class DeleteDeviceDialogFragment(private val device: Device) : DialogFragment() 
             binding.btnCancel.setOnClickListener {
                 dismiss()
             }
+            // applying dialog background to be transparent to get rid of corners
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
             dialog
         } ?: throw IllegalStateException("Activity cannot be null")
     }

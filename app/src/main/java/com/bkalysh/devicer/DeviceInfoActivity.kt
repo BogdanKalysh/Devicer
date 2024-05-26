@@ -21,6 +21,10 @@ class DeviceInfoActivity : AppCompatActivity()  {
 
         setRoundImageView(this, binding.imgUser, R.drawable.user_pick)
 
+        binding.btnCancel.setOnClickListener {
+            finish()
+        }
+
         val deviceJson = intent.getStringExtra(DEVICE_KEY_EXTRA)
         deviceJson?.apply {
             try {

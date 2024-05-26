@@ -40,6 +40,10 @@ class DeviceEditActivity : AppCompatActivity() {
             Log.d(TAG, "Save button clicked")
             updateDevice()
         }
+        binding.btnCancel.setOnClickListener {
+            Log.d(TAG, "Cancel button clicked")
+            finish()
+        }
         binding.root.setOnClickListener {
             Log.d(TAG, "Clicked away from keyboard. Hiding the keyboard")
             hideKeyboard()

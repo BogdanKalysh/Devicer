@@ -6,19 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ProgressBar
-        android:id="@+id/pb_main"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
     <ImageView
         android:id="@+id/img_user"
-        android:src="@drawable/user_pick"
+        tools:src="@drawable/user_pick"
         android:contentDescription="@string/user_image_description"
         android:layout_width="@dimen/user_image_size"
         android:layout_height="@dimen/user_image_size"
@@ -50,12 +40,23 @@
         android:id="@+id/btn_reset"
         android:src="@drawable/icn_reset_24"
         android:contentDescription="@string/btn_reset_devices_list_description"
-        android:background="@color/transparent"
+        android:background="@drawable/background_default_button_ripple"
+        android:elevation="@dimen/default_elevation"
         android:layout_width="@dimen/default_icon_size"
         android:layout_height="@dimen/default_icon_size"
-        android:scaleType="fitXY"
+        android:scaleType="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="@dimen/vertical_margin"/>
+
+    <ProgressBar
+        android:id="@+id/pb_main"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
