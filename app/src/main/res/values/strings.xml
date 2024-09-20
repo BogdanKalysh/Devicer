@@ -3,7 +3,7 @@
     <string name="user_name" translatable="false">Bohdan Kalysh</string>
 
     <!--  config strings  -->
-    <string name="server_name" translatable="false">https://veramobile.mios.com</string>
+    <string name="server_name" translatable="false">https://bogdankalysh.github.io/</string>
     <string name="database_name" translatable="false">device_database</string>
 
     <!--  Views strings  -->
