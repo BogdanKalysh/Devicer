@@ -5,6 +5,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface DevicesApiImpl : DevicesApi {
-    @GET("/devicer_backend/devices.json")
+    @GET("/devicer_backend_static/devices.json")
     override suspend fun getDevices(): Response<DevicesResponse>
 }
